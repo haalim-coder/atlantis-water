@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Atlantis Premium Water | Pure. Safe. Healthy.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    :root{
+      --blue:#0071ce;
+      --blue2:#005fad;
+      --blue3:#e6f2ff;
+      --blue4:#cce5ff;
+      --sky:#00aaff;
+      --text:#1c2b3a;
+      --gray:#6b7c93;
+      --light:#f4f8fc;
+      --white:#ffffff;
+      --border:#dde8f0;
+      --green:#00a651;
+    }
+    html{scroll-behavior:smooth;}
+    body{font-family:'Nunito',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;}
+
+    /* ── TOP STRIP ── */
+    .strip{background:var(--blue);color:#fff;text-align:center;padding:.45rem 2rem;font-size:.78rem;font-weight:700;letter-spacing:.04em;}
+    .strip a{color:#fff;text-decoration:underline;margin-left:.5rem;}
+
+    /* ── NAV ── */
+    nav{
+      position:sticky;top:0;z-index:200;
+      background:#fff;
+      border-bottom:2px solid var(--blue4);
+      padding:0 5%;
+      display:flex;align-items:center;justify-content:space-between;
+      height:72px;
+      box-shadow:0 2px 12px rgba(0,113,206,.08);
+    }
+    .logo{display:flex;align-items:center;gap:.7rem;text-decoration:none;}
+    .logo-bubble{
+      width:46px;height:46px;
+      background:linear-gradient(135deg,var(--blue),var(--sky));
+      border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      color:#fff;font-size:1.3rem;font-weight:900;
+    }
+    .logo-words{line-height:1.1;}
+    .logo-main{font-size:1.25rem;font-weight:900;color:var(--blue);}
+    .logo-sub{font-size:.62rem;font-weight:700;color:var(--gray);letter-spacing:.12em;text-transform:uppercase;}
+    .nav-links{display:flex;gap:0;list-style:none;height:72px;}
+    .nav-links a{
+      display:flex;align-items:center;
+      padding:0 1.1rem;height:100%;
+      color:var(--text);text-decoration:none;
+      font-size:.88rem;font-weight:700;
+      border-bottom:3px solid transparent;
+      transition:color .2s,border-color .2s;
+    }
+    .nav-links a:hover{color:var(--blue);border-bottom-color:var(--blue);}
+    .nav-btn{
+      background:var(--blue);color:#fff;
+      padding:.6rem 1.4rem;border-radius:50px;
+      font-size:.85rem;font-weight:800;
+      text-decoration:none;transition:background .2s,transform .2s;
+      white-space:nowrap;
+    }
+    .nav-btn:hover{background:var(--blue2);transform:translateY(-1px);}
+    .hbg{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;}
+    .hbg span{display:block;width:25px;height:2px;background:var(--text);border-radius:2px;}
+
+    /* ── HERO ── */
+    .hero{
+      background:linear-gradient(160deg,#e8f4ff 0%,#f0f8ff 50%,#d6ecff 100%);
+      padding:5rem 5% 3rem;
+      display:grid;grid-template-columns:1fr 1fr;
+      gap:2rem;align-items:center;
+      min-height:88vh;
+      position:relative;overflow:hidden;
+    }
+    .hero::after{
+      content:'';position:absolute;
+      right:-120px;top:-120px;
+      width:500px;height:500px;
+      background:radial-gradient(circle,rgba(0,170,255,.12),transparent 70%);
+      border-radius:50%;pointer-events:none;
+    }
+    .hero-left{position:relative;z-index:2;}
+    .hero-chip{
+      display:inline-flex;align-items:center;gap:.5rem;
+      background:#fff;border:1.5px solid var(--blue4);
+      color:var(--blue);border-radius:50px;
+      padding:.35rem 1rem;font-size:.75rem;font-weight:800;
+      letter-spacing:.08em;text-transform:uppercase;
+      margin-bottom:1.5rem;
+      animation:up .6s ease both;
+    }
+    .hero-chip::before{content:'💧';font-size:.9rem;}
+    .hero-h1{
+      font-size:clamp(2.4rem,5vw,4rem);font-weight:900;
+      line-height:1.12;color:var(--text);
+      margin-bottom:1.2rem;
+      animation:up .6s .08s ease both;
+    }
+    .hero-h1 span{color:var(--blue);}
+    .hero-p{
+      font-size:1.05rem;font-weight:600;color:var(--gray);
+      line-height:1.75;max-width:480px;
+      margin-bottom:2.2rem;
+      animation:up .6s .16s ease both;
+    }
+    .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;animation:up .6s .24s ease both;}
+    .btn-blue{
+      background:var(--blue);color:#fff;border:none;
+      padding:.9rem 2.2rem;border-radius:50px;
+      font-family:'Nunito',sans-serif;font-size:.95rem;font-weight:800;
+      cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block;
+    }
+    .btn-blue:hover{background:var(--blue2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,113,206,.3);}
+    .btn-white{
+      background:#fff;color:var(--blue);
+      border:2px solid var(--blue);
+      padding:.88rem 2rem;border-radius:50px;
+      font-family:'Nunito',sans-serif;font-size:.95rem;font-weight:800;
+      cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block;
+    }
+    .btn-white:hover{background:var(--blue3);}
+
+    /* Hero right — bottles */
+    .hero-right{
+      display:flex;justify-content:center;align-items:flex-end;
+      gap:1.5rem;padding-bottom:2rem;
+      animation:up .8s .2s ease both;
+    }
+    .bottle-col{display:flex;flex-direction:column;align-items:center;gap:.5rem;}
+    .bottle-col span{font-size:.72rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.06em;}
+    .bottle-wrap{
+      background:rgba(255,255,255,.7);
+      border:1.5px solid var(--blue4);
+      border-radius:16px;
+      padding:1rem .8rem;
+      display:flex;justify-content:center;align-items:flex-end;
+      transition:transform .3s,box-shadow .3s;
+    }
+    .bottle-wrap:hover{transform:translateY(-8px);box-shadow:0 16px 40px rgba(0,113,206,.15);}
+
+    /* ── TRUST BAR ── */
+    .trust{
+      background:#fff;
+      border-top:1.5px solid var(--border);
+      border-bottom:1.5px solid var(--border);
+      padding:1.6rem 5%;
+      display:flex;align-items:center;justify-content:space-around;
+      flex-wrap:wrap;gap:1rem;
+    }
+    .trust-i{display:flex;align-items:center;gap:.6rem;font-size:.85rem;font-weight:700;color:var(--text);}
+    .trust-i em{font-style:normal;font-size:1.3rem;}
+
+    /* ── GENERIC SECTION ── */
+    .sec{padding:5.5rem 5%;}
+    .sec-tag{font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:.6rem;}
+    .sec-h{font-size:clamp(1.7rem,3.5vw,2.6rem);font-weight:900;color:var(--text);line-height:1.2;margin-bottom:1rem;}
+    .sec-p{font-size:.97rem;font-weight:600;color:var(--gray);line-height:1.8;max-width:540px;}
+
+    /* ── PRODUCTS ── */
+    .products-bg{background:var(--light);}
+    .prod-header{text-align:center;margin-bottom:3.5rem;}
+    .prod-header .sec-p{margin:0 auto;}
+    .prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
+    .prod-card{
+      background:#fff;border:2px solid var(--border);
+      border-radius:20px;padding:2rem 1.5rem 1.8rem;
+      text-align:center;transition:all .3s;cursor:default;position:relative;
+    }
+    .prod-card:hover{border-color:var(--blue);box-shadow:0 12px 40px rgba(0,113,206,.12);transform:translateY(-5px);}
+    .prod-card.hot{border-color:var(--blue);box-shadow:0 4px 20px rgba(0,113,206,.1);}
+    .hot-badge{
+      position:absolute;top:-1px;left:50%;transform:translateX(-50%);
+      background:var(--blue);color:#fff;
+      border-radius:0 0 12px 12px;
+      font-size:.65rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+      padding:.28rem 1.1rem;
+    }
+    .p-svg{height:120px;display:flex;align-items:flex-end;justify-content:center;margin-bottom:1rem;}
+    .p-size{font-size:2.6rem;font-weight:900;color:var(--blue);line-height:1;}
+    .p-unit{font-size:.75rem;font-weight:800;color:var(--gray);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.7rem;}
+    .p-name{font-size:.98rem;font-weight:800;color:var(--text);margin-bottom:.4rem;}
+    .p-desc{font-size:.78rem;font-weight:600;color:var(--gray);line-height:1.55;margin-bottom:1rem;}
+    .p-tag{display:inline-block;background:var(--blue3);color:var(--blue);font-size:.68rem;font-weight:800;padding:.25rem .8rem;border-radius:50px;}
+
+    /* ── ABOUT ── */
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+    .about-img{
+      background:linear-gradient(135deg,var(--blue) 0%,var(--sky) 100%);
+      border-radius:24px;aspect-ratio:4/5;
+      display:flex;align-items:center;justify-content:center;
+      flex-direction:column;gap:1rem;color:#fff;position:relative;overflow:hidden;
+    }
+    .about-img::before{
+      content:'';position:absolute;inset:0;
+      background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.15),transparent 60%);
+    }
+    .about-img-inner{position:relative;text-align:center;}
+    .about-emoji{font-size:4rem;margin-bottom:.5rem;display:block;}
+    .about-big{font-size:1.6rem;font-weight:900;}
+    .about-sm{font-size:.75rem;font-weight:700;opacity:.8;letter-spacing:.15em;text-transform:uppercase;}
+    .about-pill{
+      position:absolute;bottom:-1.5rem;right:-1.5rem;
+      background:#fff;border:2px solid var(--border);
+      border-radius:16px;padding:1rem 1.4rem;
+      box-shadow:0 8px 30px rgba(0,0,0,.1);
+    }
+    .about-pill-num{font-size:2rem;font-weight:900;color:var(--blue);line-height:1;}
+    .about-pill-lbl{font-size:.7rem;font-weight:800;color:var(--gray);text-transform:uppercase;letter-spacing:.08em;}
+    .about-text .sec-p{margin-bottom:1rem;}
+    .feats{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-top:1.8rem;}
+    .feat{display:flex;align-items:flex-start;gap:.7rem;padding:.9rem 1rem;background:var(--light);border:1.5px solid var(--border);border-radius:12px;}
+    .feat-ico{width:36px;height:36px;background:var(--blue3);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+    .feat strong{display:block;font-size:.82rem;font-weight:800;color:var(--text);margin-bottom:.1rem;}
+    .feat span{font-size:.74rem;font-weight:600;color:var(--gray);}
+
+    /* ── STATS ── */
+    .stats-row{
+      background:var(--blue);padding:3.5rem 5%;
+      display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;
+    }
+    .stat-box{text-align:center;padding:1rem;border-right:1px solid rgba(255,255,255,.2);}
+    .stat-box:last-child{border-right:none;}
+    .stat-n{font-size:2.6rem;font-weight:900;color:#fff;line-height:1;margin-bottom:.3rem;}
+    .stat-l{font-size:.75rem;font-weight:700;color:rgba(255,255,255,.75);text-transform:uppercase;letter-spacing:.1em;}
+
+    /* ── WHY ── */
+    .why-bg{background:var(--light);}
+    .why-head{text-align:center;margin-bottom:3.5rem;}
+    .why-head .sec-p{margin:0 auto;}
+    .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+    .why-card{
+      background:#fff;border:2px solid var(--border);
+      border-radius:20px;padding:2rem 1.8rem;
+      transition:all .3s;
+    }
+    .why-card:hover{border-color:var(--blue);box-shadow:0 8px 30px rgba(0,113,206,.1);transform:translateY(-4px);}
+    .why-ico{width:52px;height:52px;background:var(--blue3);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.2rem;}
+    .why-card h3{font-size:1rem;font-weight:800;color:var(--text);margin-bottom:.6rem;}
+    .why-card p{font-size:.83rem;font-weight:600;color:var(--gray);line-height:1.7;}
+
+    /* ── CONTACT ── */
+    .contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:5rem;align-items:start;}
+    .contact-cards{display:flex;flex-direction:column;gap:.9rem;margin-top:2rem;}
+    .c-card{display:flex;align-items:center;gap:.9rem;padding:1.1rem 1.3rem;background:var(--light);border:1.5px solid var(--border);border-radius:14px;transition:border-color .2s;}
+    .c-card:hover{border-color:var(--blue);}
+    .c-ico{width:42px;height:42px;background:var(--blue3);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+    .c-card strong{display:block;font-size:.7rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.15rem;}
+    .c-card span{font-size:.9rem;font-weight:700;color:var(--text);}
+    .form-box{background:var(--light);border:1.5px solid var(--border);border-radius:20px;padding:2.2rem;}
+    .form-box h3{font-size:1.3rem;font-weight:900;color:var(--text);margin-bottom:1.5rem;}
+    .fg{margin-bottom:1.1rem;}
+    .fg label{display:block;font-size:.72rem;font-weight:800;color:var(--gray);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.35rem;}
+    .fg input,.fg textarea,.fg select{
+      width:100%;background:#fff;border:1.5px solid var(--border);
+      border-radius:10px;color:var(--text);
+      padding:.8rem 1rem;font-family:'Nunito',sans-serif;font-size:.9rem;font-weight:600;
+      outline:none;transition:border-color .2s,box-shadow .2s;
+    }
+    .fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,113,206,.1);}
+    .fg select option{background:#fff;}
+    .fg textarea{resize:vertical;min-height:110px;}
+    .frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+    .fsub{
+      width:100%;background:var(--blue);color:#fff;border:none;
+      border-radius:10px;padding:1rem;
+      font-family:'Nunito',sans-serif;font-size:.95rem;font-weight:800;
+      cursor:pointer;transition:all .2s;margin-top:.4rem;
+    }
+    .fsub:hover{background:var(--blue2);box-shadow:0 6px 20px rgba(0,113,206,.3);}
+    .fsuccess{display:none;margin-top:.8rem;padding:.9rem;background:#e6f9ef;border:1.5px solid #b2dfca;border-radius:10px;color:var(--green);font-size:.85rem;font-weight:700;text-align:center;}
+
+    /* ── FOOTER ── */
+    footer{background:var(--text);color:rgba(255,255,255,.65);padding:3rem 5%;}
+    .ft{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.1);flex-wrap:wrap;}
+    .ft-brand{max-width:260px;}
+    .ft-brand .logo-main{color:#fff;}
+    .ft-brand p{font-size:.82rem;font-weight:600;line-height:1.7;margin-top:.8rem;color:rgba(255,255,255,.5);}
+    .ft-col h4{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#fff;margin-bottom:.9rem;}
+    .ft-col ul{list-style:none;display:flex;flex-direction:column;gap:.55rem;}
+    .ft-col a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.83rem;font-weight:600;transition:color .2s;}
+    .ft-col a:hover{color:#fff;}
+    .ft-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;font-size:.75rem;flex-wrap:wrap;gap:.5rem;}
+
+    /* ── ANIMATIONS ── */
+    @keyframes up{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+    .rev{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease;}
+    .rev.in{opacity:1;transform:translateY(0);}
+
+    /* ── MOBILE OVERLAY ── */
+    .mob-menu{display:none;position:fixed;inset:0;background:#fff;z-index:300;flex-direction:column;align-items:center;justify-content:center;gap:2rem;}
+    .mob-menu.open{display:flex;}
+    .mob-menu a{font-size:1.5rem;font-weight:900;color:var(--text);text-decoration:none;}
+    .mob-menu a:hover{color:var(--blue);}
+    .mob-x{position:absolute;top:1.3rem;right:1.5rem;background:none;border:none;font-size:2rem;cursor:pointer;color:var(--gray);}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1024px){
+      nav{padding:0 4%;}
+      .hero{padding:4rem 4% 2rem;grid-template-columns:1fr;min-height:auto;text-align:center;}
+      .hero-p{margin:0 auto 2rem;}
+      .hero-btns{justify-content:center;}
+      .hero-right{margin-top:2rem;}
+      .sec{padding:4rem 4%;}
+      .prod-grid{grid-template-columns:repeat(2,1fr);}
+      .about-grid{grid-template-columns:1fr;gap:3rem;}
+      .stats-row{grid-template-columns:repeat(2,1fr);}
+      .stat-box:nth-child(2){border-right:none;}
+      .why-grid{grid-template-columns:1fr 1fr;}
+      .contact-grid{grid-template-columns:1fr;gap:2.5rem;}
+    }
+    @media(max-width:640px){
+      .strip{font-size:.7rem;}
+      nav{padding:0 1.2rem;}
+      .nav-links,.nav-btn{display:none;}
+      .hbg{display:flex;}
+      .hero{padding:3rem 4% 2rem;}
+      .hero-right{gap:.8rem;}
+      .bottle-wrap{padding:.7rem .5rem;}
+      .sec{padding:3rem 4%;}
+      .prod-grid{grid-template-columns:1fr 1fr;gap:1rem;}
+      .stats-row{padding:2.5rem 4%;}
+      .why-grid{grid-template-columns:1fr;}
+      .feats,.frow{grid-template-columns:1fr;}
+      .form-box{padding:1.5rem;}
+      footer{padding:2rem 4%;}
+      .ft{flex-direction:column;gap:1.5rem;}
+      .ft-bottom{flex-direction:column;text-align:center;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- STRIP -->
+<div class="strip">🌊 Pakistan's Premium Purified Water — Pure, Safe & Delivered to Your Door <a href="#contact">Order Now</a></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="logo">
+    <div class="logo-bubble">A</div>
+    <div class="logo-words">
+      <div class="logo-main">Atlantis</div>
+      <div class="logo-sub">Premium Water</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#why">Why Atlantis</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-btn">Order Now 💧</a>
+  <button class="hbg" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-x" onclick="toggleMenu()">✕</button>
+  <a href="#home" onclick="toggleMenu()">Home</a>
+  <a href="#products" onclick="toggleMenu()">Products</a>
+  <a href="#about" onclick="toggleMenu()">About Us</a>
+  <a href="#why" onclick="toggleMenu()">Why Atlantis</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <a href="#contact" onclick="toggleMenu()" style="background:var(--blue);color:#fff;padding:.7rem 2rem;border-radius:50px;">Order Now</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-chip">Pakistan's Trusted Water Brand</div>
+    <h1 class="hero-h1">Pure Water for a<br><span>Healthier</span> Tomorrow</h1>
+    <p class="hero-p">Atlantis delivers hospital-grade purified water to your home and office. Every drop filtered, tested, and trusted by thousands of Pakistani families.</p>
+    <div class="hero-btns">
+      <a href="#products" class="btn-blue">Explore Products</a>
+      <a href="#about" class="btn-white">Learn More</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <!-- 0.5L -->
+    <div class="bottle-col">
+      <div class="bottle-wrap">
+        <svg width="30" height="80" viewBox="0 0 30 80" fill="none">
+          <rect x="10" y="0" width="10" height="7" rx="2" fill="#0071ce" opacity=".55"/>
+          <rect x="8" y="7" width="14" height="4" rx="1" fill="#0071ce" opacity=".35"/>
+          <rect x="4" y="11" width="22" height="52" rx="5" fill="#0071ce" opacity=".13" stroke="#0071ce" stroke-width="1.5"/>
+          <rect x="4" y="43" width="22" height="20" rx="5" fill="#0071ce" opacity=".08"/>
+          <rect x="8" y="24" width="14" height="1.5" rx="1" fill="#0071ce" opacity=".18"/>
+          <rect x="8" y="33" width="14" height="1.5" rx="1" fill="#0071ce" opacity=".18"/>
+        </svg>
+      </div>
+      <span>0.5L</span>
+    </div>
+    <!-- 1.5L -->
+    <div class="bottle-col">
+      <div class="bottle-wrap">
+        <svg width="38" height="100" viewBox="0 0 38 100" fill="none">
+          <rect x="13" y="0" width="12" height="8" rx="2" fill="#0071ce" opacity=".6"/>
+          <rect x="10" y="8" width="18" height="5" rx="1" fill="#0071ce" opacity=".38"/>
+          <rect x="4" y="13" width="30" height="68" rx="7" fill="#0071ce" opacity=".14" stroke="#0071ce" stroke-width="1.8"/>
+          <rect x="4" y="55" width="30" height="26" rx="7" fill="#0071ce" opacity=".09"/>
+          <rect x="9" y="28" width="20" height="1.5" rx="1" fill="#0071ce" opacity=".2"/>
+          <rect x="9" y="40" width="20" height="1.5" rx="1" fill="#0071ce" opacity=".2"/>
+        </svg>
+      </div>
+      <span>1.5L</span>
+    </div>
+    <!-- 10L -->
+    <div class="bottle-col">
+      <div class="bottle-wrap">
+        <svg width="52" height="110" viewBox="0 0 52 110" fill="none">
+          <rect x="17" y="0" width="18" height="10" rx="3" fill="#0071ce" opacity=".55"/>
+          <rect x="13" y="10" width="26" height="6" rx="1" fill="#0071ce" opacity=".35"/>
+          <rect x="4" y="16" width="44" height="76" rx="8" fill="#0071ce" opacity=".12" stroke="#0071ce" stroke-width="1.8"/>
+          <rect x="4" y="65" width="44" height="27" rx="8" fill="#0071ce" opacity=".08"/>
+          <rect x="10" y="30" width="32" height="1.5" rx="1" fill="#0071ce" opacity=".18"/>
+          <rect x="10" y="44" width="32" height="1.5" rx="1" fill="#0071ce" opacity=".18"/>
+          <rect x="10" y="56" width="32" height="1.5" rx="1" fill="#0071ce" opacity=".18"/>
+        </svg>
+      </div>
+      <span>10L</span>
+    </div>
+    <!-- 19L -->
+    <div class="bottle-col">
+      <div class="bottle-wrap">
+        <svg width="64" height="120" viewBox="0 0 64 120" fill="none">
+          <rect x="21" y="0" width="22" height="11" rx="3" fill="#0071ce" opacity=".55"/>
+          <rect x="17" y="11" width="30" height="7" rx="2" fill="#0071ce" opacity=".35"/>
+          <rect x="4" y="18" width="56" height="82" rx="10" fill="#0071ce" opacity=".11" stroke="#0071ce" stroke-width="2"/>
+          <rect x="4" y="72" width="56" height="28" rx="10" fill="#0071ce" opacity=".07"/>
+          <rect x="10" y="33" width="44" height="1.5" rx="1" fill="#0071ce" opacity=".18"/>
+          <rect x="10" y="46" width="44" height="1.5" rx="1" fill="#0071ce" opacity=".18"/>
+          <rect x="10" y="59" width="44" height="1.5" rx="1" fill="#0071ce" opacity=".18"/>
+        </svg>
+      </div>
+      <span>19L</span>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust">
+  <div class="trust-i rev"><em>✅</em> PSQCA Certified</div>
+  <div class="trust-i rev"><em>🔬</em> Lab Tested Daily</div>
+  <div class="trust-i rev"><em>🚚</em> Same-Day Delivery</div>
+  <div class="trust-i rev"><em>💧</em> 99.9% Pure</div>
+  <div class="trust-i rev"><em>🏆</em> 10,000+ Happy Customers</div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="sec products-bg" id="products">
+  <div class="prod-header rev">
+    <div class="sec-tag">Our Products</div>
+    <h2 class="sec-h">Water for Every Need</h2>
+    <p class="sec-p">From personal hydration to bulk office supply — Atlantis has the right size for every situation.</p>
+  </div>
+  <div class="prod-grid">
+
+    <div class="prod-card rev">
+      <div class="p-svg">
+        <svg width="36" height="100" viewBox="0 0 36 100" fill="none">
+          <rect x="12" y="0" width="12" height="8" rx="2" fill="#0071ce" opacity=".5"/>
+          <rect x="9" y="8" width="18" height="5" rx="1" fill="#0071ce" opacity=".3"/>
+          <rect x="4" y="13" width="28" height="65" rx="6" fill="#0071ce" opacity=".12" stroke="#0071ce" stroke-width="1.5"/>
+          <rect x="4" y="52" width="28" height="26" rx="6" fill="#0071ce" opacity=".08"/>
+        </svg>
+      </div>
+      <div class="p-size">0.5</div>
+      <div class="p-unit">Litre</div>
+      <div class="p-name">Mini Bottle</div>
+      <div class="p-desc">Perfect for school, gym & travel. Stay hydrated on the go.</div>
+      <span class="p-tag">On-The-Go</span>
+    </div>
+
+    <div class="prod-card hot rev">
+      <div class="hot-badge">⭐ Most Popular</div>
+      <div class="p-svg">
+        <svg width="44" height="108" viewBox="0 0 44 108" fill="none">
+          <rect x="15" y="0" width="14" height="9" rx="2" fill="#0071ce" opacity=".6"/>
+          <rect x="12" y="9" width="20" height="6" rx="1" fill="#0071ce" opacity=".38"/>
+          <rect x="4" y="15" width="36" height="74" rx="7" fill="#0071ce" opacity=".13" stroke="#0071ce" stroke-width="2"/>
+          <rect x="4" y="62" width="36" height="27" rx="7" fill="#0071ce" opacity=".09"/>
+        </svg>
+      </div>
+      <div class="p-size">1.5</div>
+      <div class="p-unit">Litre</div>
+      <div class="p-name">Classic Bottle</div>
+      <div class="p-desc">Ideal for daily personal use. The whole family's favourite.</div>
+      <span class="p-tag">Best Seller</span>
+    </div>
+
+    <div class="prod-card rev">
+      <div class="p-svg">
+        <svg width="54" height="108" viewBox="0 0 54 108" fill="none">
+          <rect x="17" y="0" width="20" height="10" rx="3" fill="#0071ce" opacity=".5"/>
+          <rect x="13" y="10" width="28" height="6" rx="1" fill="#0071ce" opacity=".3"/>
+          <rect x="3" y="16" width="48" height="72" rx="8" fill="#0071ce" opacity=".11" stroke="#0071ce" stroke-width="1.8"/>
+          <rect x="3" y="60" width="48" height="28" rx="8" fill="#0071ce" opacity=".07"/>
+          <rect x="9" y="30" width="36" height="1.5" rx="1" fill="#0071ce" opacity=".17"/>
+          <rect x="9" y="44" width="36" height="1.5" rx="1" fill="#0071ce" opacity=".17"/>
+        </svg>
+      </div>
+      <div class="p-size">10</div>
+      <div class="p-unit">Litre</div>
+      <div class="p-name">Family Bottle</div>
+      <div class="p-desc">Home & kitchen use. Easy to carry and store anywhere.</div>
+      <span class="p-tag">Family Size</span>
+    </div>
+
+    <div class="prod-card rev">
+      <div class="p-svg">
+        <svg width="66" height="108" viewBox="0 0 66 108" fill="none">
+          <rect x="21" y="0" width="24" height="11" rx="3" fill="#0071ce" opacity=".5"/>
+          <rect x="17" y="11" width="32" height="7" rx="2" fill="#0071ce" opacity=".3"/>
+          <rect x="3" y="18" width="60" height="72" rx="9" fill="#0071ce" opacity=".1" stroke="#0071ce" stroke-width="1.8"/>
+          <rect x="3" y="62" width="60" height="28" rx="9" fill="#0071ce" opacity=".07"/>
+          <rect x="9" y="32" width="48" height="1.5" rx="1" fill="#0071ce" opacity=".16"/>
+          <rect x="9" y="46" width="48" height="1.5" rx="1" fill="#0071ce" opacity=".16"/>
+          <rect x="9" y="58" width="48" height="1.5" rx="1" fill="#0071ce" opacity=".16"/>
+        </svg>
+      </div>
+      <div class="p-size">19</div>
+      <div class="p-unit">Litre</div>
+      <div class="p-name">Office Dispenser</div>
+      <div class="p-desc">Bulk refill for offices & businesses. Works with all dispensers.</div>
+      <span class="p-tag">Bulk Supply</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-row">
+  <div class="stat-box rev"><div class="stat-n">10K+</div><div class="stat-l">Happy Customers</div></div>
+  <div class="stat-box rev"><div class="stat-n">99.9%</div><div class="stat-l">Purity Rate</div></div>
+  <div class="stat-box rev"><div class="stat-n">7</div><div class="stat-l">Filtration Stages</div></div>
+  <div class="stat-box rev"><div class="stat-n">24/7</div><div class="stat-l">Delivery Available</div></div>
+</div>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="about-grid">
+    <div class="rev" style="position:relative;padding-bottom:2.5rem;">
+      <div class="about-img">
+        <div class="about-img-inner">
+          <span class="about-emoji">💧</span>
+          <div class="about-big">Pure. Safe. Fresh.</div>
+          <div class="about-sm">Atlantis Premium Water</div>
+        </div>
+      </div>
+      <div class="about-pill">
+        <div class="about-pill-num">2022</div>
+        <div class="about-pill-lbl">Est. in Pakistan</div>
+      </div>
+    </div>
+    <div class="about-text">
+      <div class="sec-tag">About Us</div>
+      <h2 class="sec-h">Trusted Water.<br>Proven Purity.</h2>
+      <p class="sec-p">We are a trusted water purification company providing clean, safe, and premium-quality drinking water across Pakistan.</p>
+      <p class="sec-p" style="margin-top:.8rem;">Our modern purification process ensures purity, freshness, and great taste in every single drop — for homes, offices, and businesses.</p>
+      <div class="feats">
+        <div class="feat rev"><div class="feat-ico">🔬</div><div><strong>Lab Tested Daily</strong><span>Every batch verified by certified labs</span></div></div>
+        <div class="feat rev"><div class="feat-ico">🏭</div><div><strong>Modern Plant</strong><span>State-of-the-art purification facility</span></div></div>
+        <div class="feat rev"><div class="feat-ico">🚚</div><div><strong>Fast Delivery</strong><span>Same-day delivery available</span></div></div>
+        <div class="feat rev"><div class="feat-ico">✅</div><div><strong>PSQCA Certified</strong><span>Government approved standards</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="sec why-bg" id="why">
+  <div class="why-head">
+    <div class="sec-tag">Why Choose Atlantis</div>
+    <h2 class="sec-h">The Atlantis Difference</h2>
+    <p class="sec-p">We don't just sell water — we deliver health, trust, and convenience every single day.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card rev">
+      <div class="why-ico">🔄</div>
+      <h3>7-Stage Purification</h3>
+      <p>Our advanced filtration removes 99.9% of contaminants, bacteria, and heavy metals — leaving only pure, healthy water.</p>
+    </div>
+    <div class="why-card rev">
+      <div class="why-ico">⚗️</div>
+      <h3>Mineral Balanced</h3>
+      <p>Essential minerals are carefully retained and calibrated for optimal health — not stripped away like cheap brands.</p>
+    </div>
+    <div class="why-card rev">
+      <div class="why-ico">🏠</div>
+      <h3>Doorstep Delivery</h3>
+      <p>Order by phone or online. We deliver to homes and offices across the city — on time, every time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec" id="contact">
+  <div class="contact-grid">
+    <div>
+      <div class="sec-tag">Get In Touch</div>
+      <h2 class="sec-h">Let's Talk Water.</h2>
+      <p class="sec-p">Questions about products, delivery, or bulk orders? We're always here to help.</p>
+      <div class="contact-cards">
+        <div class="c-card rev"><div class="c-ico">📞</div><div><strong>Phone</strong><span>+92 300 0000000</span></div></div>
+        <div class="c-card rev"><div class="c-ico">📧</div><div><strong>Email</strong><span>info@atlantispremiumwater.com</span></div></div>
+        <div class="c-card rev"><div class="c-ico">📍</div><div><strong>Location</strong><span>Lahore, Pakistan</span></div></div>
+        <div class="c-card rev"><div class="c-ico">🕐</div><div><strong>Working Hours</strong><span>Mon–Sat, 8am – 8pm</span></div></div>
+      </div>
+    </div>
+    <div class="form-box rev">
+      <h3>Send Us a Message</h3>
+      <div class="frow">
+        <div class="fg"><label>First Name</label><input type="text" placeholder="Muhammad"/></div>
+        <div class="fg"><label>Last Name</label><input type="text" placeholder="Ali"/></div>
+      </div>
+      <div class="fg"><label>Phone Number</label><input type="tel" placeholder="+92 300 0000000"/></div>
+      <div class="fg">
+        <label>Product Interest</label>
+        <select>
+          <option value="">Select a product...</option>
+          <option>0.5L Mini Bottle</option>
+          <option>1.5L Classic Bottle</option>
+          <option>10L Family Bottle</option>
+          <option>19L Office Dispenser</option>
+          <option>Bulk / Business Order</option>
+        </select>
+      </div>
+      <div class="fg"><label>Message</label><textarea placeholder="Tell us about your order or any questions..."></textarea></div>
+      <button class="fsub" onclick="submitForm()">Send Message →</button>
+      <div class="fsuccess" id="fsuccess">✓ Message sent! We'll get back to you within 24 hours.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft">
+    <div class="ft-brand">
+      <div class="logo" style="margin-bottom:.5rem;">
+        <div class="logo-bubble">A</div>
+        <div class="logo-words">
+          <div class="logo-main">Atlantis</div>
+          <div class="logo-sub" style="color:rgba(255,255,255,.5)">Premium Water</div>
+        </div>
+      </div>
+      <p>Pakistan's trusted source for premium purified drinking water. Pure, safe, and delivered to your door.</p>
+    </div>
+    <div class="ft-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#why">Why Atlantis</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Products</h4>
+      <ul>
+        <li><a href="#products">0.5L Mini Bottle</a></li>
+        <li><a href="#products">1.5L Classic Bottle</a></li>
+        <li><a href="#products">10L Family Bottle</a></li>
+        <li><a href="#products">19L Office Dispenser</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+923000000000">+92 300 0000000</a></li>
+        <li><a href="mailto:info@atlantispremiumwater.com">info@atlantis<br>premiumwater.com</a></li>
+        <li><a href="#">Lahore, Pakistan</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <span>© 2025 Atlantis Premium Water. All rights reserved.</span>
+    <span>Made with 💧 in Pakistan</span>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const revs = document.querySelectorAll('.rev');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('in'), i * 55);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  revs.forEach(r => obs.observe(r));
+
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('mobMenu').classList.toggle('open');
+  }
+
+  // Form
+  function submitForm() {
+    const s = document.getElementById('fsuccess');
+    s.style.display = 'block';
+    setTimeout(() => s.style.display = 'none', 5000);
+  }
+</script>
+</body>
+</html>
